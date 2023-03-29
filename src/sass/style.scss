@@ -15,3 +15,151 @@
 @import "layout";
 @import "global";
 @import "typography";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #000;
+  color: #ccc;
+  position: relative;
+  padding-top: 30rem;
+}
+
+.splash {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("https://i.postimg.cc/4ykw8kPP/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all .3s ease;
+  z-index: 99;
+
+  &.scroll {
+    height: 200px;
+
+    .page-title {
+      font-size: 10rem;
+      max-width: 51rem;
+      line-height: 10rem;
+    }
+
+    .page-subtitle {
+      font-size: 2.4rem;
+      flex-direction: row;
+      width: 100% !important;
+      max-width: 33rem;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.splash h1,
+.splash p {
+  z-index: 99;
+  padding: 0;
+  margin: 0;
+  font-weight: 900;
+  transition: all .3s ease;
+}
+
+.splash::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: red;
+  background: linear-gradient(0deg, #000f 0%, #00000000 100%);
+}
+
+.content {
+  padding: 20rem 10rem 10rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 20rem;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: red;
+    background: linear-gradient(0deg, #00000000 0%, #000f 100%);
+  }
+}
+
+.page-title {
+  font-size: 20rem;
+  line-height: 20rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 102rem;
+}
+
+.page-subtitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3.6rem;
+  letter-spacing: 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 18rem;
+  height: 17rem;
+}
+
+.content {
+  padding: 20rem 10rem 10rem;
+  position: relative;
+  font-size: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 20rem;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: red;
+    background: linear-gradient(0deg, #00000000 0%, #000f 100%);
+  }
+
+  p {
+    width: 100%;
+    max-width: 64rem;
+    text-align: justify;
+    word-wrap: break-word;
+  }
+}
