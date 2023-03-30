@@ -28,13 +28,63 @@
     </p>
   </div>
 
-  <div class="content">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque doloribus ad cumque architecto, magni saepe, minima sit nemo similique nam aspernatur tenetur cupiditate quisquam doloremque necessitatibus, quae fugit quaerat consequuntur quidem sint omnis ex? Cumque ex non optio nostrum corrupti, aut sed assumenda a exercitationem unde corporis vel, quasi dolor harum commodi reiciendis autem vitae asperiores similique laborum dolore eaque et rerum! Alias iure ad aliquam distinctio sunt esse, nostrum ipsam velit iste hic rem consequuntur nam quia quasi sit, quaerat beatae facilis a dolore recusandae tenetur? Nobis labore, provident illum cumque neque a, totam distinctio dolorem aliquid sunt perferendis.</p>
-    <p>Provident officiis praesentium at nemo vero, voluptatem mollitia saepe placeat sed porro dolore sapiente dignissimos hic odio nulla laboriosam suscipit debitis? Necessitatibus, ullam sapiente consequuntur libero obcaecati earum blanditiis iusto inventore maxime, ea culpa. Minima minus temporibus modi! Illo exercitationem asperiores praesentium voluptate, sed molestiae facilis perspiciatis modi fuga eius quibusdam iste ducimus suscipit esse quaerat, necessitatibus facere excepturi labore eveniet pariatur aperiam molestias est in? Id, officiis. Omnis pariatur est vero modi minus sequi a harum exercitationem quam cumque necessitatibus reprehenderit vel, cum nam illo obcaecati inventore nulla nihil animi ipsum rerum similique expedita quas nisi. Dolorem, totam iste.</p>
-    <p>Provident, temporibus minus! Laudantium nulla facere vero reprehenderit amet quasi aliquam voluptate, blanditiis quo, cum quisquam at ipsa commodi enim pariatur accusamus repudiandae autem nesciunt itaque, voluptatem esse distinctio officiis ex. Voluptates iusto maiores dolore consectetur unde. Expedita numquam tempore voluptates, sunt corporis, veniam, sit aspernatur non delectus odit ratione? Excepturi, architecto molestias? Dolores libero eaque ut cum, fugiat praesentium aut accusamus, id dolore aliquam porro quis amet suscipit alias saepe ipsum laboriosam et quas unde velit! Eos tempore saepe accusamus reiciendis iste tenetur, minus debitis perspiciatis voluptates, nihil cumque magni quis laboriosam? Hic adipisci voluptates laborum tempora quidem temporibus?</p>
-    <p>Iusto sint optio harum amet, autem aliquid necessitatibus delectus itaque minima sapiente dolor vero sit enim cupiditate facere alias. Omnis sunt, perferendis dolor fugit optio ab doloribus fuga itaque atque maxime nihil quis ex quo vitae alias explicabo repudiandae suscipit delectus autem qui corporis iste quidem! Aliquam obcaecati saepe ducimus modi tempora consectetur aspernatur eos earum. Cumque nam sit voluptates itaque, quo, quis atque adipisci ex dolor aspernatur ad dicta nisi commodi libero fugit tempore sed doloribus sint at earum, corporis provident? Impedit quisquam fugit suscipit debitis soluta laudantium quaerat ea deserunt ab odit iure molestias facilis, voluptate maxime et.</p>
-    <p>Illo, voluptates non error odio rem impedit, doloremque beatae asperiores perspiciatis quod sed perferendis? In sit tempore dolores repudiandae dolorem autem odio aliquam mollitia, assumenda esse dicta itaque officiis molestias ab ducimus nam aspernatur repellendus. Rerum et perferendis, excepturi accusantium iusto sit culpa, eum dignissimos at quas nam quia enim quisquam temporibus eaque accusamus id placeat. Ea qui tempore delectus? Ab voluptate tempore officia ratione veniam. Ea sint, consequatur vitae nisi unde distinctio iusto excepturi est ab quod, et quasi nulla omnis provident dolor obcaecati impedit aperiam ut, inventore corporis repudiandae nobis tenetur autem! Eos numquam ad quae explicabo labore?</p>
+  <div class="main-nav link-wrapper">
+    <a class="nav-link" href="#home">Home</a>
+    <a class="nav-link" href="#search">Search</a>
+    <a class="nav-link" href="#discover">Discover</a>
   </div>
+  
+  <div id="pages">
+    <section id="home">
+      <div class="home-wrapper container">
+      </div>
+    </section>
+    <section id="search">
+      <div class="product-list container">
+        DUPA SEARCH
+      </div>
+    </section>
+    <section id="discover">
+      <div class="discover-wrapper container">
+        DUPA DISCOVER
+      </div>
+    </section>
+  </div>
+
+  <script id="template-song-widget" type="text/x-handlebars-template">
+
+    <div class="song">
+      <h3>
+        <a href="#" data-author="{{ author }}" class="author"></a>
+        &nbsp;-&nbsp;
+        <a href="#" data-title="{{ title }}">{{ title }}</a>
+      </h3>
+      <div class="audio-player">
+        <audio>
+          <source src="{{ src }}" type="audio/mp3"></source>
+        </audio>
+      </div>
+      <div class="additionals">
+        <div>
+          Categories:
+          {{#each categories}}
+            {{ this }}
+          {{/each}}
+        </div>
+        <div>
+          #{{ ranking }} in the ranking
+        </div>
+      </div>
+    </div>
+  
+  </script>
+  
+  <script id="template-home-widget" type="text/x-handlebars-template">
+  DUPA HOME DUPA?!
+    <div class="container songs-wrapper">
+      <div id="songs-list"></div>  
+    </div>
+  </script>
 
   <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>

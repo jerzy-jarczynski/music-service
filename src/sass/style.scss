@@ -32,7 +32,7 @@ body {
   background: #000;
   color: #ccc;
   position: relative;
-  padding-top: 30rem;
+  // padding-top: 200px;
 }
 
 .splash {
@@ -41,8 +41,8 @@ body {
   overflow: hidden;
   background-image: url("https://i.postimg.cc/4ykw8kPP/background.jpg");
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   font-family: 'Source Sans Pro', sans-serif;
   color: #ffffff;
   display: flex;
@@ -51,9 +51,9 @@ body {
   align-items: center;
   padding: 50px;
   position: relative;
-  position: fixed;
-  top: 0;
-  left: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   transition: all .3s ease;
   z-index: 99;
 
@@ -98,19 +98,25 @@ body {
 }
 
 .content {
-  padding: 20rem 10rem 10rem;
+  padding: 11.5rem 10rem 10rem;
   position: relative;
 
-  &::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 20rem;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: red;
-    background: linear-gradient(0deg, #00000000 0%, #000f 100%);
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   position: fixed;
+  //   top: 20rem;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 10%;
+  //   background: red;
+  //   background: linear-gradient(0deg, #00000000 0%, #000f 100%);
+  // }
+
+  #songs-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -131,35 +137,48 @@ body {
   font-size: 3.6rem;
   letter-spacing: 1rem;
   text-align: center;
-  width: 100%;
-  max-width: 18rem;
-  height: 17rem;
+  widht: 500px;
+  max-width: 180px;
+  height: 170px;
 }
 
-.content {
-  padding: 20rem 10rem 10rem;
-  position: relative;
-  font-size: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// SONG
 
-  &::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 20rem;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: red;
-    background: linear-gradient(0deg, #00000000 0%, #000f 100%);
+// MENU
+
+.main-nav {
+  width: 100%;
+  max-width: 575px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  margin: 0 auto;
+
+  .nav-link {
+    color: #bfbfbf;
+    text-decoration: none;
+    transition: all .3s ease;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &.active {
+      color: #fff;
+    }
   }
 
-  p {
-    width: 100%;
-    max-width: 64rem;
-    text-align: justify;
-    word-wrap: break-word;
+}
+
+#pages {
+  >* {
+    display: none;
+  }
+
+  >.active {
+    display: block;
   }
 }
