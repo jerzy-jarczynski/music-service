@@ -33,7 +33,7 @@
     <a class="nav-link" href="#search">Search</a>
     <a class="nav-link" href="#discover">Discover</a>
   </div>
-  
+
   <div id="pages">
     <section id="home">
       <div class="home-wrapper container">
@@ -55,11 +55,13 @@
 
     <div class="song">
       <h3>
-        <a href="#" data-author="{{ author }}" class="author"></a>
+        <a href="#" data-author="{{ author.id }}" class="author">
+          {{ author.name }}
+        </a>
         &nbsp;-&nbsp;
         <a href="#" data-title="{{ title }}">{{ title }}</a>
       </h3>
-      <div class="audio-player">
+      <div class="player">
         <audio>
           <source src="{{ src }}" type="audio/mp3"></source>
         </audio>
@@ -78,11 +80,14 @@
     </div>
   
   </script>
-  
+
   <script id="template-home-widget" type="text/x-handlebars-template">
-  DUPA HOME DUPA?!
-    <div class="container songs-wrapper">
+    <div class="container home-wrapper">
       <div id="songs-list"></div>  
+    </div>
+  
+    <div class="banner">
+      
     </div>
   </script>
 

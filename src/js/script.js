@@ -41,13 +41,8 @@ const app = {
   activatePage: function(pageId) {
     const thisApp = this;
 
-    console.log('activatePage');
-
     for (let page of thisApp.pages) {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
-
-      if (page.id == pageId) console.log(page);
-
     }
     
     for (let link of thisApp.navLinks) {
@@ -61,27 +56,25 @@ const app = {
   initData: function() {
     const thisApp = this;
     
-    const urlSongs = settings.db.url + '/' + settings.db.songs;
-    const urlAuthors = settings.db.url + '/' + settings.db.authors;
+    const url = settings.db.url + '/' + settings.db.database;
     
     thisApp.data = {};
-    thisApp.data.songs = {};
-    thisApp.data.authors = {};
     
-    Promise.all([
-      fetch(urlSongs),
-      fetch(urlAuthors),
-    ])
-      .then(function(rawResponses) {
-        const songsResponse = rawResponses[0];
-        const authorsResponse = rawResponses[1];
-        return Promise.all([
-          songsResponse.json(),
-          authorsResponse.json(),
-        ]);
+    fetch(url)
+      .then(function(rawResponse) {
+        return rawResponse.json();
       })
-      .then(function(parsedResponses) {
-        thisApp.data = parsedResponses;
+      .then(function(parsedResponse) {
+        /* save parsedResponse as thisApp.data */
+        thisApp.data = parsedResponse;
+        thisApp.initHome();
+      })
+      .then(function() {
+        // eslint-disable-next-line
+        GreenAudioPlayer.init({
+          selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+          stopOthersOnPlay: true
+        });
       });
   },
   
@@ -89,7 +82,7 @@ const app = {
     const thisApp = this;
     
     const homeContainer = document.querySelector(select.containerOf.home);
-    thisApp.home = new Home(homeContainer);
+    thisApp.home = new Home(homeContainer, thisApp.data);
   },
   
   init: function() {
@@ -97,35 +90,10 @@ const app = {
     
     thisApp.initPages();
     thisApp.initData();
-    thisApp.initHome();
   },
-};
+}
 
 app.init();
-
-// const navbarSticky = function() {
-
-//   /* SOURCE */
-//   /* https://webgolovolomki.com/en/how-to-add-a-css-class-on-scroll/ */
-
-//   let scrollpos = window.scrollY;
-
-//   const header = document.querySelector('.splash');
-//   const scrollChange = 100;
-
-//   const add_class_on_scroll = () => header.classList.add('scroll');
-//   const remove_class_on_scroll = () => header.classList.remove('scroll');
-
-//   window.addEventListener('scroll', function() { 
-//     scrollpos = window.scrollY;
-
-//     if (scrollpos >= scrollChange) { add_class_on_scroll(); }
-//     else { remove_class_on_scroll(); }
-    
-//   });
-// };
-
-// navbarSticky();
 
 const resizeSplashBg = () => {
   const bg = document.querySelector('.splash');

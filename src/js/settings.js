@@ -12,6 +12,7 @@ export const select = {
   },
   home: {
     songsList: '#songs-list',
+    banner: '.banner',
   },
 };
 
@@ -31,8 +32,8 @@ export const templates = {
 
 export const settings = {
   db: {
-    url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
-    songs: 'songs',
-    authors: 'authors',
+    // url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
+    url: 'https://music-service-api-2.jerzy-jarczynski.repl.co',
+    database: 'database',
   },
 };
