@@ -1,5 +1,6 @@
 import { select, classNames, settings } from './settings.js';
 import Home from './components/Home.js';
+import Search from './components/Search.js';
 
 const app = {
   initPages: function() {
@@ -68,6 +69,7 @@ const app = {
         /* save parsedResponse as thisApp.data */
         thisApp.data = parsedResponse;
         thisApp.initHome();
+        thisApp.initSearch();
       })
       .then(function() {
         // eslint-disable-next-line
@@ -83,6 +85,13 @@ const app = {
     
     const homeContainer = document.querySelector(select.containerOf.home);
     thisApp.home = new Home(homeContainer, thisApp.data);
+  },
+  
+  initSearch: function() {
+    const thisApp = this;
+    
+    const searchContainer = document.querySelector(select.containerOf.search);
+    thisApp.search = new Search(searchContainer, thisApp.data);
   },
   
   init: function() {
@@ -105,3 +114,4 @@ const resizeSplashBg = () => {
 };
 
 resizeSplashBg();
+

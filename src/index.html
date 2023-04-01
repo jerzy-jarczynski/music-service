@@ -7,7 +7,7 @@
   <title>Music Service</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -40,9 +40,6 @@
       </div>
     </section>
     <section id="search">
-      <div class="product-list container">
-        DUPA SEARCH
-      </div>
     </section>
     <section id="discover">
       <div class="discover-wrapper container">
@@ -50,6 +47,10 @@
       </div>
     </section>
   </div>
+
+  <footer>
+    All rights reserved
+  </footer>
 
   <script id="template-song-widget" type="text/x-handlebars-template">
 
@@ -87,7 +88,33 @@
     </div>
   
     <div class="banner">
-      
+      <h2 class="title">SUBSCRIBE <span class="font-bold">NOW</span></h2>
+      <div class="row">
+        <div class="col button-col">
+          <a href="#" class="button">JOIN NOW</a>
+        </div>
+        <div class="col album-col">
+          <div class="album-row">
+            <h3 class="author">
+              <span class="firstname">{{ name.firstname }}</span>
+              <span class="lastname" data-name="{{ name.lastname }}"><span class="first-half"></span><span class="second-half"></span></span>
+            </h3>
+            <div class="album-cover">
+              <img src="{{ img }}" alt="">
+            </div>
+          </div>
+          <div class="info">
+            <h4>NEW ALBUM</h4>
+            <p>Available only for subscribers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="template-search-widget" type="text/x-handlebars-template">
+    <div class="search-wrapper container">
+      DUPA TEST SEARCH
     </div>
   </script>
 

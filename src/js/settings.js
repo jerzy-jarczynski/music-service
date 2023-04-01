@@ -2,17 +2,28 @@ export const select = {
   templateOf: {
     homeWidget: '#template-home-widget',
     audioPlayerWidget: '#template-song-widget',
+    searchWidget: '#template-search-widget',
   },
   containerOf: {
     pages: '#pages',
     home: '#home',
+    search: '#search',
   },
   nav: {
     links: '.main-nav a',
   },
   home: {
     songsList: '#songs-list',
-    banner: '.banner',
+    banner: {
+      wrapper: '.banner',
+      before: '.banner::before',
+      author: {
+        wrapper: '.author',
+        lastname: '.lastname',
+        lnFirstHalf: '.first-half',
+        lnSecondHalf: '.second-half',
+      },
+    },
   },
 };
 
@@ -23,11 +34,15 @@ export const classNames = {
   nav: {
     active: 'active',
   },
+  banner: {
+    visible: 'visible',
+  },
 };
 
 export const templates = {
   homeWidget: Handlebars.compile(document.querySelector(select.templateOf.homeWidget).innerHTML),
   audioPlayerWidget: Handlebars.compile(document.querySelector(select.templateOf.audioPlayerWidget).innerHTML),
+  searchWidget: Handlebars.compile(document.querySelector(select.templateOf.searchWidget).innerHTML),
 };
 
 export const settings = {
