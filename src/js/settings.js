@@ -3,14 +3,18 @@ export const select = {
     homeWidget: '#template-home-widget',
     audioPlayerWidget: '#template-song-widget',
     searchWidget: '#template-search-widget',
+    searchbarWidget: '#template-searchbar-widget',
+    discoverWidget: '#template-discover-widget',
   },
   containerOf: {
     pages: '#pages',
     home: '#home',
     search: '#search',
+    discover: '#discover',
   },
   nav: {
     links: '.main-nav a',
+    discover: 'a[href="#discover"]',
   },
   home: {
     songsList: '#songs-list',
@@ -24,6 +28,20 @@ export const select = {
         lnSecondHalf: '.second-half',
       },
     },
+  },
+  search: {
+    songsList: '.songs',
+    result: '.result',
+    searchbar: '.searchbar',
+    player: '#search .player',
+  },
+  searchbar: {
+    input: 'input[type="text"]',
+    button: 'button',
+  },
+  discover: {
+    songs: '.songs',
+    player: '#discover .player',
   },
 };
 
@@ -43,6 +61,8 @@ export const templates = {
   homeWidget: Handlebars.compile(document.querySelector(select.templateOf.homeWidget).innerHTML),
   audioPlayerWidget: Handlebars.compile(document.querySelector(select.templateOf.audioPlayerWidget).innerHTML),
   searchWidget: Handlebars.compile(document.querySelector(select.templateOf.searchWidget).innerHTML),
+  searchbarWidget: Handlebars.compile(document.querySelector(select.templateOf.searchbarWidget).innerHTML),
+  discoverWidget: Handlebars.compile(document.querySelector(select.templateOf.discoverWidget).innerHTML),
 };
 
 export const settings = {

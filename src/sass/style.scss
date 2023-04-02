@@ -1,13 +1,6 @@
 // normalize default styles
 @import "normalize";
 
-// Bootstrap
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import "bootstrap/utilities";
-@import "bootstrap/grid";
-
 // variables
 @import "variables";
 
@@ -285,72 +278,70 @@ body {
     width: 100%;
     overflow: hidden;
     padding: 7rem 1.5rem 0;
+  }
 
-    .button-col {
-      order: 2;
+  .button-col {
+    order: 2;
+  }
+
+  .album-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .album-cover {
+    img {
+      width: 100%;
+      max-width: 35rem;
+    }
+  }
+
+  .author {
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    line-height: 4.5rem;
+    position: relative;
+
+    .firstname {
+      display: inline-block;
     }
 
-    .album-col {
-      .album-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .author {
-        color: #fff;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 700;
-        font-size: 5rem;
-        letter-spacing: 1rem;
-        line-height: 4.5rem;
-        position: relative;
-
-        .firstname {
-          display: inline-block;
-        }
-
-        .lastname {
-          position: absolute;
-          top: 100%;
-          left: 100%;
-          transform: translateX(-50%);
-        }
-
-        .second-half {
-          color: #cf383e;
-        }
-      }
-
-      .album-cover {
-        img {
-          width: 100%;
-          max-width: 35rem;
-        }
-      }
-
-      .info {
-        text-align: right;
-        font-size: 2rem;
-        font-family: 'Source Sans Pro', sans-serif;
-        padding: 2rem 0;
-
-        &>* {
-          padding: 0;
-          margin: 0;
-          letter-spacing: 0.4rem;
-        }
-
-        h4 {
-          color: #bfbfbf;
-          font-weight: 700;
-        }
-
-        p {
-          color: #fff;
-        }
-      }
+    .lastname {
+      position: absolute;
+      top: 100%;
+      left: 100%;
+      transform: translateX(-50%);
     }
+
+    .second-half {
+      color: #cf383e;
+    }
+  }
+
+  .info {
+    text-align: right;
+    font-size: 2rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 2rem 0;
+
+    h4 {
+      color: #bfbfbf;
+      font-weight: 700;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
+  .info>* {
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.4rem;
   }
 }
 
@@ -378,4 +369,91 @@ footer {
   color: #fff;
   letter-spacing: 0.4rem;
   font-weight: 400;
+}
+
+#search,
+#discover {
+  .search-wrapper {
+    padding: 0 1.5rem;
+  }
+
+  .title {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #bfbfbf;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 1.2rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 5.5rem;
+  }
+
+  .result {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.6rem;
+    text-align: center;
+    padding: 9.5rem 0 9rem;
+  }
+}
+
+#discover .title {
+  padding-bottom: 0;
+}
+
+.searchbar-form {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  label {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #bfbfbf;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.6rem;
+  }
+
+  button {
+    display: inline-block;
+    text-transform: uppercase;
+    outline: 0px;
+    border: 0px;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    line-height: 6rem;
+    padding: 0;
+    width: 14rem;
+    height: 6rem;
+    text-align: center;
+    transform: scale(1);
+  }
+
+  input {
+    display: inline-block;
+    width: 100%;
+    max-width: 35.5rem;
+    height: 6rem;
+    border-radius: 1rem;
+    margin: 0 3rem 0 2.5rem;
+    outline: 0;
+    border: 0 solid #cf383e;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #000;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    padding: 1rem;
+    transition: all .3s ease;
+
+    &:focus {
+      border: 4px solid #cf383e;
+    }
+  }
 }

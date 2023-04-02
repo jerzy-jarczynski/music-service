@@ -26,7 +26,7 @@ class Home {
     thisHome.dom.banner = thisHome.dom.wrapper.querySelector(select.home.banner.wrapper);
     thisHome.dom.banner.before = window.getComputedStyle(thisHome.dom.banner, '::before');
     thisHome.dom.banner.author = thisHome.dom.wrapper.querySelector(select.home.banner.author.wrapper);
-    thisHome.dom.banner.author.lastname = thisHome.dom.wrapper.querySelector(select.home.banner.author.lastname)
+    thisHome.dom.banner.author.lastname = thisHome.dom.wrapper.querySelector(select.home.banner.author.lastname);
     thisHome.dom.banner.author.lnFirstHalf = thisHome.dom.wrapper.querySelector(select.home.banner.author.lnFirstHalf);
     thisHome.dom.banner.author.lnSecondHalf = thisHome.dom.wrapper.querySelector(select.home.banner.author.lnSecondHalf);
     
@@ -39,6 +39,12 @@ class Home {
     for (let song of thisHome.data.songs) {
       new AudioPlayer(song, thisHome.data.authors, thisHome.dom.songsList);
     }
+    
+    // eslint-disable-next-line
+    GreenAudioPlayer.init({
+      selector: '#home .player',
+      stopOthersOnPlay: true,
+    });
   }
   
   getSubscribe() {
@@ -67,13 +73,17 @@ class Home {
   resizeBannerBg() {
     const thisHome = this;
     
-    const body 
-    = document.body,
+    const 
+      body = document.body,
       html = document.documentElement;
 
-    const pageHeight 
-    = Math.max( body.scrollHeight, body.offsetHeight, 
-      html.clientHeight, html.scrollHeight, html.offsetHeight);
+    const pageHeight = Math.max(
+      body.scrollHeight,
+      body.offsetHeight, 
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
     
     const bannerHeight = thisHome.dom.banner.offsetHeight;
     

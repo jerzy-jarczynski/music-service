@@ -1,6 +1,7 @@
 import { select, classNames, settings } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
+import Discover from './components/Discover.js';
 
 const app = {
   initPages: function() {
@@ -67,16 +68,10 @@ const app = {
       })
       .then(function(parsedResponse) {
         /* save parsedResponse as thisApp.data */
-        thisApp.data = parsedResponse;
-        thisApp.initHome();
-        thisApp.initSearch();
+        thisApp.data = parsedResponse;  
       })
       .then(function() {
-        // eslint-disable-next-line
-        GreenAudioPlayer.init({
-          selector: '.player', // inits Green Audio Player on each audio container that has class "player"
-          stopOthersOnPlay: true
-        });
+        thisApp.initContent();
       });
   },
   
@@ -94,13 +89,28 @@ const app = {
     thisApp.search = new Search(searchContainer, thisApp.data);
   },
   
+  initDiscover: function() {
+    const thisApp = this;
+    
+    const discoverContainer = document.querySelector(select.containerOf.discover);
+    thisApp.discover = new Discover(discoverContainer, thisApp.data);
+  },
+  
+  initContent: function() {
+    const thisApp = this;
+    
+    thisApp.initHome();
+    thisApp.initSearch();
+    thisApp.initDiscover();
+  },
+  
   init: function() {
     const thisApp = this;
     
     thisApp.initPages();
     thisApp.initData();
   },
-}
+};
 
 app.init();
 

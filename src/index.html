@@ -43,7 +43,6 @@
     </section>
     <section id="discover">
       <div class="discover-wrapper container">
-        DUPA DISCOVER
       </div>
     </section>
   </div>
@@ -83,8 +82,8 @@
   </script>
 
   <script id="template-home-widget" type="text/x-handlebars-template">
-    <div class="container home-wrapper">
-      <div id="songs-list"></div>  
+    <div class="home-wrapper">
+      <div id="songs-list" class="container"></div>  
     </div>
   
     <div class="banner">
@@ -111,10 +110,34 @@
       </div>
     </div>
   </script>
-
   <script id="template-search-widget" type="text/x-handlebars-template">
-    <div class="search-wrapper container">
-      DUPA TEST SEARCH
+    <div class="search-wrapper">
+      <h2 class="title">SEARCH</h2>
+      <div class="searchbar"></div>
+      <div class="result">Search through all songs...</div>
+      <div class="songs container"></div>
+    </div>
+  </script>
+
+  <script id="template-searchbar-widget" type="text/x-handlebars-template">
+      <form class=searchbar-form>
+        <div class="row">
+          <label for="">
+            Name
+          </label>
+          <input type="text">
+          <button class="button">
+            Search
+          </button>
+        </div>
+      </form>
+  </script>
+
+  <script id="template-discover-widget" type="text/x-handlebars-template">
+    <div class="discover-wrapper">
+      <h2 class="title">DISCOVER</h2>
+      <div class="result">Give it a try!</div>
+      <div class="songs container"></div>
     </div>
   </script>
 
