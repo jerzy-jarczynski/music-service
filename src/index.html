@@ -13,132 +13,137 @@
 </head>
 <body>
 
-  <div class="splash">
-    <h1 class="page-title">
+  <div class="hero background-full parallax flex flex--column flex--center">
+    <h1 class="hero__title flex flex--space-between">
       <span>T</span>
       <span>A</span>
       <span>S</span>
       <span>T</span>
       <span>E</span>
     </h1>
-    <p class="page-subtitle">
+    <p class="hero__subtitle flex flex--column flex--space-between">
       <span>ENGAGE</span>
       <span>IN</span>
       <span>ART</span>
     </p>
   </div>
 
-  <div class="main-nav link-wrapper">
-    <a class="nav-link" href="#home">Home</a>
-    <a class="nav-link" href="#search">Search</a>
-    <a class="nav-link" href="#discover">Discover</a>
+  <div class="menu flex flex--space-between">
+    <a class="menu__link" href="#home">Home</a>
+    <a class="menu__link" href="#search">Search</a>
+    <a class="menu__link" href="#discover">Discover</a>
   </div>
 
-  <div id="pages">
-    <section id="home">
-      <div class="home-wrapper container">
-      </div>
+  <div class="page">
+    <section id="home" class="page__home">
     </section>
-    <section id="search">
+    <section id="search" class="page__search">
     </section>
-    <section id="discover">
-      <div class="discover-wrapper container">
-      </div>
+    <section id="discover" class="page__discover">
     </section>
   </div>
 
-  <footer>
+  <footer class="footer">
     All rights reserved
   </footer>
 
+  <!-- PAGES -->
+
+  <!-- HOME -->
+  <script id="template-home-widget" type="text/x-handlebars-template">
+    <div class="songs container"></div>
+
+    <div class="banner background-full parallax">
+      <h2 class="banner__title">
+        SUBSCRIBE
+        <span class="banner__title--bold">NOW</span>
+      </h2>
+      <div class="banner__row flex flex--column flex--center">
+        <div class="banner__col banner__col--button">
+          <button class="button banner__button">
+            JOIN NOW
+          </button>
+        </div>
+        <div class="banner__col banner__col--album">
+          <div class="flex flex--center">
+            <h3 class="banner__author">
+              <div class="banner__author--firstname">{{ name.firstname }}</div>
+              <div class="banner__author--lastname" data-name="{{ name.lastname }}"><span class="banner__author--lastname-first-half"></span><span class="banner__author--lastname-second-half"></span></div>
+            </h3>
+            <div class="banner__album-cover">
+              <img src="{{ img }}" alt="" class="banner__album-cover--img">
+            </div>
+          </div>
+          <div class="banner__info">
+            <h4 class="banner__info--header">NEW ALBUM</h4>
+            <p class="banner__info--paragraph">Available only for subscribers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <!-- SEARCH -->
+  <script id="template-search-widget" type="text/x-handlebars-template">
+    <h2 class="page__title">SEARCH</h2>
+    <div class="searchbar"></div>
+    <div class="page__communicate">Search through all songs...</div>
+    <div class="songs container"></div>
+  </script>
+
+  <!-- DISCOVER -->
+  <script id="template-discover-widget" type="text/x-handlebars-template">
+    <h2 class="page__title">DISCOVER</h2>
+    <div class="page__communicate">Give it a try!</div>
+    <div class="songs container"></div>
+  </script>
+
+  <!-- WIDGETS -->
+
+  <!-- SONG -->
   <script id="template-song-widget" type="text/x-handlebars-template">
 
-    <div class="song">
-      <h3>
-        <a href="#" data-author="{{ author.id }}" class="author">
+    <div class="song flex flex--column">
+      <h3 class="song__title">
+        <a href="#" data-author="{{ author.id }}" class="song__title--author">
           {{ author.name }}
         </a>
         &nbsp;-&nbsp;
-        <a href="#" data-title="{{ title }}">{{ title }}</a>
+        <a href="#" data-title="{{ title }}" class="song__title--title">{{ title }}</a>
       </h3>
-      <div class="player">
+      <div class="song__audio-player">
         <audio>
           <source src="{{ src }}" type="audio/mp3"></source>
         </audio>
       </div>
-      <div class="additionals">
-        <div>
+      <div class="song__additionals flex flex--space-between">
+        <div class="song__additionals--categories">
           Categories:
           {{#each categories}}
-            {{ this }}
+            <a href="#{{ this }}">{{ this }}</a>
           {{/each}}
         </div>
-        <div>
-          #{{ ranking }} in the ranking
+        <div class="song__additionals--ranking">
+          #{{ ranking }} in the <a href="#ranking">ranking</a>
         </div>
       </div>
     </div>
-  
+
   </script>
 
-  <script id="template-home-widget" type="text/x-handlebars-template">
-    <div class="home-wrapper">
-      <div id="songs-list" class="container"></div>  
-    </div>
-  
-    <div class="banner">
-      <h2 class="title">SUBSCRIBE <span class="font-bold">NOW</span></h2>
-      <div class="row">
-        <div class="col button-col">
-          <a href="#" class="button">JOIN NOW</a>
-        </div>
-        <div class="col album-col">
-          <div class="album-row">
-            <h3 class="author">
-              <span class="firstname">{{ name.firstname }}</span>
-              <span class="lastname" data-name="{{ name.lastname }}"><span class="first-half"></span><span class="second-half"></span></span>
-            </h3>
-            <div class="album-cover">
-              <img src="{{ img }}" alt="">
-            </div>
-          </div>
-          <div class="info">
-            <h4>NEW ALBUM</h4>
-            <p>Available only for subscribers</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </script>
-  <script id="template-search-widget" type="text/x-handlebars-template">
-    <div class="search-wrapper">
-      <h2 class="title">SEARCH</h2>
-      <div class="searchbar"></div>
-      <div class="result">Search through all songs...</div>
-      <div class="songs container"></div>
-    </div>
-  </script>
-
+  <!-- SEARCHBAR -->
   <script id="template-searchbar-widget" type="text/x-handlebars-template">
-      <form class=searchbar-form>
-        <div class="row">
-          <label for="">
+      <form class="searchbar">
+        <div class="flex flex--center">
+          <label for="song" class="searchbar__title">
             Name
           </label>
-          <input type="text">
+          <input type="text" name="song" class="searchbar__input">
           <button class="button">
             Search
           </button>
         </div>
       </form>
-  </script>
-
-  <script id="template-discover-widget" type="text/x-handlebars-template">
-    <div class="discover-wrapper">
-      <h2 class="title">DISCOVER</h2>
-      <div class="result">Give it a try!</div>
-      <div class="songs container"></div>
-    </div>
   </script>
 
   <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>

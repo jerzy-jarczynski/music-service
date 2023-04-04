@@ -43,8 +43,23 @@ const app = {
   activatePage: function(pageId) {
     const thisApp = this;
 
-    for (let page of thisApp.pages) {
-      page.classList.toggle(classNames.pages.active, page.id == pageId);
+    for (let page of thisApp.pages) {   
+      
+      let pageActive = '';
+      
+      switch (page.id) {
+      case 'home':
+        pageActive = classNames.home.active;
+        break;
+      case 'search':
+        pageActive = classNames.search.active;
+        break;
+      case 'discover':
+        pageActive = classNames.discover.active;
+        break;
+      }
+
+      page.classList.toggle(pageActive, page.id == pageId);
     }
     
     for (let link of thisApp.navLinks) {
@@ -68,9 +83,8 @@ const app = {
       })
       .then(function(parsedResponse) {
         /* save parsedResponse as thisApp.data */
-        thisApp.data = parsedResponse;  
-      })
-      .then(function() {
+        thisApp.data = parsedResponse;
+      
         thisApp.initContent();
       });
   },
@@ -115,11 +129,11 @@ const app = {
 app.init();
 
 const resizeSplashBg = () => {
-  const bg = document.querySelector('.splash');
+  const bg1 = document.querySelector(select.hero);
   
   window.addEventListener('scroll', () => {
     // bg.style.backgroundSize = 160 - +window.pageYOffset/12 + '%';
-    bg.style.opacity = 1 - +window.pageYOffset/700;
+    bg1.style.opacity = 1 - +window.pageYOffset/700;
   });
 };
 

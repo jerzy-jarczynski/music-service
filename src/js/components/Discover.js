@@ -37,6 +37,7 @@ class Discover {
           thisDiscover.authors,
           thisDiscover.dom.songs
         );
+
         // eslint-disable-next-line
         new GreenAudioPlayer(select.discover.player);
       }

@@ -35,10 +35,11 @@ class Search {
     
     if (!thisSearch.searchbar.resultCount) {
       thisSearch.dom.result.innerHTML = 'Search through all songs...';
+
       for (const song of thisSearch.songs) {
         new AudioPlayer(song, thisSearch.authors, thisSearch.dom.songsList);
       }
-
+      
       // eslint-disable-next-line
       GreenAudioPlayer.init({
         selector: select.search.player, // inits Green Audio Player on each audio container that has class "player"

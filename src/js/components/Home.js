@@ -42,7 +42,7 @@ class Home {
     
     // eslint-disable-next-line
     GreenAudioPlayer.init({
-      selector: '#home .player',
+      selector: select.home.player,
       stopOthersOnPlay: true,
     });
   }
@@ -73,17 +73,13 @@ class Home {
   resizeBannerBg() {
     const thisHome = this;
     
-    const 
-      body = document.body,
+    const body
+    = document.body,
       html = document.documentElement;
 
-    const pageHeight = Math.max(
-      body.scrollHeight,
-      body.offsetHeight, 
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    );
+    const pageHeight
+    = Math.max( body.scrollHeight, body.offsetHeight, 
+      html.clientHeight, html.scrollHeight, html.offsetHeight );
     
     const bannerHeight = thisHome.dom.banner.offsetHeight;
     

@@ -1,0 +1,244 @@
+// ---------------------------------------------
+// ---------------------BEM---------------------
+// ---------------------------------------------
+
+// blocks
+.hero {
+  color: $color-light;
+  font-weight: $weight-black;
+  text-align: center;
+  background-image: url("https://i.postimg.cc/4ykw8kPP/background.jpg");
+  padding: 5rem;
+  position: relative;
+  z-index: 99;
+  overflow: hidden;
+  transition: $transition-main;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 70%;
+    background: $color-main;
+    background: linear-gradient(0deg, $color-dark 10%, $color-dark-transparent 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  >* {
+    z-index: inherit;
+    padding: 0;
+    margin: 0;
+    transition: inherit;
+  }
+
+  &__title {
+    font-size: 20rem;
+    line-height: 20rem;
+    width: 100%;
+    max-width: 102rem;
+  }
+
+  &__subtitle {
+    font-size: 3.6rem;
+    letter-spacing: 1rem;
+    width: 100%;
+    max-width: 18rem;
+    height: 100%;
+    max-height: 17rem;
+  }
+}
+
+.menu {
+  width: 100%;
+  max-width: 57.5rem;
+  font-size: 3rem;
+  font-weight: $weight-regular;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding-bottom: 11.5rem;
+
+  &__link {
+    color: $color-medium;
+    text-decoration: none;
+    transition: $transition-main;
+
+    &:hover {
+      color: $color-light;
+    }
+
+    &--active {
+      color: $color-light;
+    }
+  }
+}
+
+.page {
+  opacity: 1; // dummy
+
+  &__home,
+  &__search,
+  &__discover {
+    display: none;
+  }
+
+  &__home--active,
+  &__search--active,
+  &__discover--active {
+    display: block;
+  }
+
+  &__title {
+    color: $color-medium;
+    font-size: 6rem;
+    font-weight: $weight-regular;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__search .page__title {
+    padding: 0 0 5.5rem;
+  }
+
+  &__communicate {
+    color: $color-light;
+    font-size: 3rem;
+    font-weight: $weight-regular;
+    text-align: center;
+    letter-spacing: 0.6rem;
+    padding: 9.5rem 0 9rem;
+  }
+}
+
+.banner {
+  background-image: url("https://i.postimg.cc/0Nr7zYks/subscribe.jpg");
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-dark;
+    opacity: var(--before-opcity, 1);
+  }
+
+  &--visible {
+    .banner__title {
+      transform: translate(-50%, 0);
+    }
+  }
+
+  &__title {
+    color: $color-light;
+    font-weight: $weight-semibold;
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    text-align: center;
+    width: 100%;
+    padding: 0 1.5rem;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    transition: $transition-main;
+
+    &--bold {
+      font-weight: $weight-black;
+    }
+  }
+
+  &__row {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 7rem 1.5rem 0;
+  }
+
+  &__col {
+    &--button {
+      order: 2;
+    }
+  }
+
+  &__author {
+    color: $color-light;
+    font-weight: $weight-bold;
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    position: relative;
+
+    &--lastname {
+      position: absolute;
+      top: 100%;
+      left: 100%;
+      transform: translateX(-50%);
+    }
+
+    &--lastname-second-half {
+      color: $color-main;
+    }
+  }
+
+  &__album-cover {
+    &--img {
+      width: 100%;
+      max-width: 35rem;
+    }
+  }
+
+  &__info {
+    text-align: right;
+    font-size: 4rem;
+    padding: 2rem 0;
+
+    >* {
+      padding: 0;
+      margin: 0;
+      letter-spacing: 0.8rem;
+    }
+
+    &--header {
+      color: $color-medium;
+      font-weight: $weight-bold;
+    }
+
+    &--paragraph {
+      color: $color-light;
+      font-weight: $weight-semibold;
+    }
+  }
+
+  &__button {
+    font-size: 4rem;
+    width: 31.5rem;
+    height: 13.5rem;
+    line-height: 12.7rem;
+    letter-spacing: 0.8rem;
+    font-weight: $weight-bold;
+    border-radius: 2rem;
+  }
+}
+
+.footer {
+  text-align: center;
+  height: 9rem;
+  line-height: 9rem;
+  font-size: 2rem;
+  color: $color-light;
+  letter-spacing: 0.4rem;
+  font-weight: $weight-regular;
+}
+
+// ---------------------------------------------
+// ---------------------BEM---------------------
+// ---------------------------------------------
