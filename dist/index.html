@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="hero background-full parallax flex flex--column flex--center">
+    <h1 class="hero__title flex flex--space-between">
+      <span>T</span>
+      <span>A</span>
+      <span>S</span>
+      <span>T</span>
+      <span>E</span>
+    </h1>
+    <p class="hero__subtitle flex flex--column flex--space-between">
+      <span>ENGAGE</span>
+      <span>IN</span>
+      <span>ART</span>
+    </p>
+  </div>
+
+  <div class="menu flex flex--space-between">
+    <a class="menu__link" href="#home">Home</a>
+    <a class="menu__link" href="#search">Search</a>
+    <a class="menu__link" href="#discover">Discover</a>
+  </div>
+
+  <div class="page">
+    <section id="home" class="page__home">
+    </section>
+    <section id="search" class="page__search">
+    </section>
+    <section id="discover" class="page__discover">
+    </section>
+  </div>
+
+  <footer class="footer">
+    All rights reserved
+  </footer>
+
+  <!-- PAGES -->
+
+  <!-- HOME -->
+  <script id="template-home-widget" type="text/x-handlebars-template">
+    <div class="songs container"></div>
+
+    <div class="banner background-full parallax">
+      <h2 class="banner__title">
+        SUBSCRIBE
+        <span class="banner__title--bold">NOW</span>
+      </h2>
+
+      <div class="banner__row flex flex--column flex--space-around flex-xl--row flex-xl--space-between">
+        <div class="banner__col banner__col--button">
+          <button class="button banner__button">
+            JOIN NOW
+          </button>
+        </div>
+        <div class="banner__col banner__col--album">
+          <div class="flex flex--center">
+            <h3 class="banner__author">
+              <div class="banner__author--firstname">{{ name.firstname }}</div>
+              <div class="banner__author--lastname" data-name="{{ name.lastname }}"><span class="banner__author--lastname-first-half"></span><span class="banner__author--lastname-second-half"></span></div>
+            </h3>
+            <div class="banner__album-cover">
+              <img src="{{ img }}" alt="" class="banner__album-cover--img">
+            </div>
+          </div>
+          <div class="banner__info">
+            <h4 class="banner__info--header">NEW ALBUM</h4>
+            <p class="banner__info--paragraph">Available only for subscribers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <!-- SEARCH -->
+  <script id="template-search-widget" type="text/x-handlebars-template">
+    <h2 class="page__title">SEARCH</h2>
+    <div class="searchbar"></div>
+    <div class="page__communicate">Search through all songs...</div>
+    <div class="songs container"></div>
+  </script>
+
+  <!-- DISCOVER -->
+  <script id="template-discover-widget" type="text/x-handlebars-template">
+    <h2 class="page__title">DISCOVER</h2>
+    <div class="page__communicate">Give it a try!</div>
+    <div class="songs container"></div>
+  </script>
+
+  <!-- WIDGETS -->
+
+  <!-- SONG -->
+  <script id="template-song-widget" type="text/x-handlebars-template">
+
+    <div class="song flex flex--column">
+      <h3 class="song__title">
+        <a href="#" data-author="{{ author.id }}" class="song__title--author display--block display-md--inline">
+          {{ author.name }}
+        </a>
+        <span class="display--none display-md--inline">&nbsp;-&nbsp;</span>
+        <a href="#" data-title="{{ title }}" class="song__title--title display--block display-md--inline">{{ title }}</a>
+      </h3>
+      <div class="song__audio-player">
+        <audio>
+          <source src="{{ src }}" type="audio/mp3"></source>
+        </audio>
+      </div>
+      <div class="song__additionals flex flex--space-between flex--column flex-md--row">
+        <div class="song__additionals--categories">
+          Categories:
+          {{#each categories}}
+            <a href="#{{ this }}">{{ this }}</a>
+          {{/each}}
+        </div>
+        <div class="song__additionals--ranking">
+          #{{ ranking }} in the <a href="#ranking">ranking</a>
+        </div>
+      </div>
+    </div>
+
+  </script>
+
+  <!-- SEARCHBAR -->
+  <script id="template-searchbar-widget" type="text/x-handlebars-template">
+      <form class="searchbar">
+        <div class="searchbar__wrapper flex flex--center flex--column flex-md--row">
+          <label for="song" class="searchbar__title">
+            Name
+          </label>
+          <input type="text" name="song" class="searchbar__input">
+          <button class="button">
+            Search
+          </button>
+        </div>
+      </form>
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="js/script.js" type="module"></script>
+</body>
+</html>
