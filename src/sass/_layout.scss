@@ -1,14 +1,9 @@
-// ---------------------------------------------
-// ---------------------BEM---------------------
-// ---------------------------------------------
-
 // blocks
 .hero {
   color: $color-light;
   font-weight: $weight-black;
   text-align: center;
   background-image: url("https://i.postimg.cc/4ykw8kPP/background.jpg");
-  padding: 5rem;
   position: relative;
   z-index: 99;
   overflow: hidden;
@@ -34,30 +29,28 @@
   }
 
   &__title {
-    font-size: 20rem;
-    line-height: 20rem;
-    width: 100%;
-    max-width: 102rem;
+    font-size: 7rem;
+    line-height: 10rem;
+    width: calc(100% - 3rem);
+    max-width: 45rem;
   }
 
   &__subtitle {
-    font-size: 3.6rem;
-    letter-spacing: 1rem;
-    width: 100%;
-    max-width: 18rem;
+    font-size: 2.5rem;
+    letter-spacing: .7rem;
+    width: calc(100% - 3rem);
     height: 100%;
-    max-height: 17rem;
   }
 }
 
 .menu {
-  width: 100%;
-  max-width: 57.5rem;
-  font-size: 3rem;
   font-weight: $weight-regular;
   text-transform: uppercase;
   margin: 0 auto;
-  padding-bottom: 11.5rem;
+  width: calc(100% - 3rem);
+  // size
+  font-size: 2rem;
+  padding-bottom: 6rem;
 
   &__link {
     color: $color-medium;
@@ -91,32 +84,39 @@
 
   &__title {
     color: $color-medium;
-    font-size: 6rem;
     font-weight: $weight-regular;
     text-transform: uppercase;
     text-align: center;
-    letter-spacing: 1.2rem;
     padding: 0;
     margin: 0;
+    // size
+    font-size: 3.5rem;
+    letter-spacing: .8rem;
   }
 
   &__search .page__title {
-    padding: 0 0 5.5rem;
+    padding: 0 0 4.5rem;
   }
 
   &__communicate {
     color: $color-light;
-    font-size: 3rem;
     font-weight: $weight-regular;
     text-align: center;
-    letter-spacing: 0.6rem;
-    padding: 9.5rem 0 9rem;
+    margin: 0 auto;
+    width: 100%;
+    // size
+    max-width: calc(100% - 3rem);
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    padding: 4.5rem 0 4.5rem;
   }
 }
 
 .banner {
   background-image: url("https://i.postimg.cc/0Nr7zYks/subscribe.jpg");
   position: relative;
+  // size
+  padding: 12.5rem 0;
 
   &::before {
     content: "";
@@ -139,18 +139,19 @@
   &__title {
     color: $color-light;
     font-weight: $weight-semibold;
-    font-size: 10rem;
-    letter-spacing: 2rem;
     text-align: center;
-    width: 100%;
-    padding: 0 1.5rem;
-    margin: 0;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
     transition: $transition-main;
+    margin: 0;
+    width: 100%;
+    // size
+    max-width: calc(100% - 3rem);
+    font-size: 3rem;
+    letter-spacing: 1rem;
 
     &--bold {
       font-weight: $weight-black;
@@ -158,10 +159,14 @@
   }
 
   &__row {
-    height: 100%;
+    position: relative;
+    z-index: 2;
+    height: calc(100vh - 25rem);
     width: 100%;
-    overflow: hidden;
-    padding: 7rem 1.5rem 0;
+    max-width: calc(100% - 3rem);
+    padding: 0;
+    margin: 0 auto;
+    justify-content: space-around;
   }
 
   &__col {
@@ -173,9 +178,10 @@
   &__author {
     color: $color-light;
     font-weight: $weight-bold;
-    font-size: 10rem;
-    letter-spacing: 2rem;
     position: relative;
+    // size
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
 
     &--lastname {
       position: absolute;
@@ -192,19 +198,22 @@
   &__album-cover {
     &--img {
       width: 100%;
-      max-width: 35rem;
+      // size
+      max-width: 15rem;
     }
   }
 
   &__info {
     text-align: right;
-    font-size: 4rem;
-    padding: 2rem 0;
+    // size
+    font-size: 2rem;
+    padding: 3rem 0 6rem;
 
     >* {
       padding: 0;
       margin: 0;
-      letter-spacing: 0.8rem;
+      // size
+      letter-spacing: 0.4rem;
     }
 
     &--header {
@@ -219,26 +228,426 @@
   }
 
   &__button {
-    font-size: 4rem;
-    width: 31.5rem;
-    height: 13.5rem;
-    line-height: 12.7rem;
-    letter-spacing: 0.8rem;
     font-weight: $weight-bold;
-    border-radius: 2rem;
+    // size
+    font-size: 2rem;
+    width: 20rem;
+    height: 8rem;
+    line-height: 8rem;
+    letter-spacing: 0.6rem;
+    border-radius: 1rem;
   }
 }
 
 .footer {
   text-align: center;
-  height: 9rem;
-  line-height: 9rem;
-  font-size: 2rem;
   color: $color-light;
-  letter-spacing: 0.4rem;
   font-weight: $weight-regular;
+  line-height: 7rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
 }
 
-// ---------------------------------------------
-// ---------------------BEM---------------------
-// ---------------------------------------------
+// Breakpoint Small
+@media (min-width: 576px) {
+
+  // components
+  .button {
+    // size
+    font-size: 2.5rem;
+    letter-spacing: 0.4rem;
+    border: 0.3rem solid $color-main;
+    border-radius: 1.2rem;
+    width: 17rem;
+    height: 6rem;
+
+    &:active {
+      border: 0.3rem solid $color-active;
+    }
+  }
+
+  .searchbar {
+    &__title {
+      // size
+      font-size: 3.5rem;
+      letter-spacing: 0.8rem;
+    }
+
+    &__input {
+      // size
+      max-width: 45rem;
+      height: 6rem;
+      border-radius: 1.2rem;
+      margin: 2.5rem auto 3.5rem;
+      font-size: 2.5rem;
+      letter-spacing: 0.4rem;
+      padding: 1rem;
+
+      &:focus {
+        border: .3rem solid $color-main;
+      }
+    }
+  }
+
+  .song {
+    padding-bottom: 6.5rem;
+
+    &:last-of-type {
+      padding-bottom: 15rem;
+    }
+
+    &__title {
+      // size
+      font-size: 3rem;
+      padding-bottom: 3rem;
+      letter-spacing: 0.3rem;
+    }
+
+    &__audio-player {
+      min-width: 45rem !important;
+      max-width: 45rem !important;
+      // size
+      height: 7rem;
+    }
+
+    &__additionals {
+      // size
+      padding-top: 3rem;
+      font-size: 2rem;
+      letter-spacing: 0.25rem;
+    }
+  }
+
+  // blocks
+  .hero {
+    &__title {
+      font-size: 12rem;
+      line-height: 14rem;
+      width: calc(100% - 3rem);
+      max-width: 65rem;
+    }
+
+    &__subtitle {
+      font-size: 3.5rem;
+      letter-spacing: 1rem;
+    }
+  }
+
+  .menu {
+    // size
+    max-width: 45rem;
+    font-size: 3rem;
+    padding-bottom: 9rem;
+  }
+
+  .page {
+    &__title {
+      // size
+      font-size: 5rem;
+      letter-spacing: 1.2rem;
+    }
+
+    &__search .page__title {
+      padding: 0 0 6.5rem;
+    }
+
+    &__communicate {
+      // size
+      max-width: 45rem;
+      font-size: 3rem;
+      letter-spacing: 0.5rem;
+      padding: 6rem 0;
+    }
+  }
+
+  .banner {
+    // size
+    padding: 15rem 0 12.5rem;
+
+    &__title {
+      // size
+      max-width: calc(100% - 3rem);
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+
+    &__author {
+      // size
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+
+    &__album-cover {
+      &--img {
+        // size
+        max-width: 25rem;
+      }
+    }
+
+    &__info {
+      // size
+      font-size: 3rem;
+      max-width: 40rem;
+
+      >* {
+        // size
+        letter-spacing: 0.6rem;
+      }
+    }
+
+    &__button {
+      // size
+      font-size: 3.5rem;
+      width: 30rem;
+      height: 12rem;
+      letter-spacing: 0.8rem;
+      border-radius: 1.5rem;
+    }
+  }
+
+  .footer {
+    line-height: 9rem;
+    font-size: 2.3rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
+// Breakpoint Medium
+@media (min-width: 768px) {
+
+  // components
+  .button {
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    line-height: 5.2rem;
+    border: 0.4rem solid $color-main;
+    border-radius: 1rem;
+    width: 14rem;
+    height: 6rem;
+
+    &:active {
+      border: 0.4rem solid $color-active;
+    }
+  }
+
+  .searchbar {
+    &__title {
+      font-size: 3rem;
+      letter-spacing: 0.6rem;
+    }
+
+    &__input {
+      max-width: 35.5rem;
+      height: 6rem;
+      border-radius: 1rem;
+      margin: 0 3rem 0 2.5rem;
+      font-size: 3rem;
+      letter-spacing: 0.4rem;
+      padding: 1rem;
+
+      &:focus {
+        border: 4px solid $color-main;
+      }
+    }
+  }
+
+  .song {
+    padding-bottom: 7.5rem;
+
+    &:last-of-type {
+      padding-bottom: 15rem;
+    }
+
+    &__title {
+      font-size: 3rem;
+      padding-bottom: 5rem;
+      letter-spacing: 0.225rem;
+    }
+
+    &__audio-player {
+      height: 8rem;
+      min-width: 60rem !important;
+      max-width: 60rem !important;
+    }
+
+    &__additionals {
+      padding-top: 2.5rem;
+      font-size: 2rem;
+      letter-spacing: 0.15rem;
+    }
+  }
+
+  // blocks
+  .hero {
+    padding: 5rem;
+
+    &__title {
+      font-size: 20rem;
+      line-height: 20rem;
+      max-width: 102rem;
+    }
+
+    &__subtitle {
+      font-size: 3.6rem;
+      letter-spacing: 1rem;
+      max-width: 18rem;
+      max-height: 17rem;
+    }
+  }
+
+  .menu {
+    max-width: 57.5rem;
+    font-size: 3rem;
+    padding-bottom: 11.5rem;
+  }
+
+  .page {
+    &__title {
+      font-size: 6rem;
+      letter-spacing: 1.2rem;
+    }
+
+    &__search .page__title {
+      padding: 0 0 5.5rem;
+    }
+
+    &__communicate {
+      font-size: 3rem;
+      letter-spacing: 0.6rem;
+      padding: 9.5rem 0 9rem;
+    }
+  }
+
+  .banner {
+    padding: 25rem 1.5rem;
+    min-height: 100vh;
+
+    &__title {
+      font-size: 6rem;
+      letter-spacing: 1.5rem;
+      padding: 0 1.5rem;
+    }
+
+    &__author {
+      font-size: 6rem;
+      letter-spacing: 1.5rem;
+    }
+
+    &__album-cover {
+      &--img {
+        max-width: 35rem;
+      }
+    }
+
+    &__info {
+      font-size: 4rem;
+      padding: 2rem 0 4rem;
+      max-width: 60rem;
+
+      >* {
+        letter-spacing: 0.8rem;
+      }
+    }
+
+    &__button {
+      font-size: 4rem;
+      width: 31.5rem;
+      height: 13.5rem;
+      line-height: 12.7rem;
+      letter-spacing: 0.8rem;
+      border-radius: 2rem;
+    }
+  }
+
+  .footer {
+    line-height: 9rem;
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    &__title {
+      font-size: 10rem;
+      letter-spacing: 2rem;
+    }
+
+    &__author {
+      // size
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+
+    &__album-cover {
+      &--img {
+        // size
+        max-width: 35rem;
+      }
+    }
+
+    &__info {
+      // size
+      font-size: 3rem;
+      max-width: unset;
+      padding: 5rem 0 0;
+
+      >* {
+        // size
+        letter-spacing: 0.6rem;
+      }
+    }
+
+    &__button {
+      // size
+      font-size: 3.5rem;
+      width: 30rem;
+      height: 12rem;
+      letter-spacing: 0.8rem;
+      border-radius: 1.5rem;
+      line-height: 10rem;
+    }
+
+    &__col {
+      &--button {
+        order: 0;
+      }
+    }
+
+    &__row {
+      height: calc(100vh - 40rem);
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .banner {
+    &__author {
+      font-size: 10rem;
+      letter-spacing: 2rem;
+    }
+
+    &__album-cover {
+      &--img {
+        max-width: 46.5rem;
+      }
+    }
+
+    &__info {
+      font-size: 4rem;
+    }
+
+    &__button {
+      font-size: 4rem;
+      width: 31.5rem;
+      height: 13.5rem;
+      line-height: 12.7rem;
+      letter-spacing: 0.8rem;
+      border-radius: 2rem;
+    }
+
+    &__row {
+      height: calc(100vh - 25rem);
+    }
+  }
+}

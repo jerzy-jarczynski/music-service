@@ -28,6 +28,9 @@ class Discover {
   initWidgets() {
     const thisDiscover = this;
     
+    thisDiscover.songsLength = thisDiscover.songs.length;
+    thisDiscover.randomIndex = Math.floor(Math.random() * thisDiscover.songsLength);
+    
     document
       .querySelector(select.nav.discover)
       .addEventListener('click', function() {
@@ -40,18 +43,21 @@ class Discover {
 
         // eslint-disable-next-line
         new GreenAudioPlayer(select.discover.player);
-      }
-      );
+      });
   }
   
   getRandomSong() {
     const thisDiscover = this;
     
-    const songsLength = thisDiscover.songs.length;
+    let randomIndex = Math.floor(Math.random() * thisDiscover.songsLength);
     
-    const randomIndex = Math.floor(Math.random() * songsLength);
+    while(randomIndex === thisDiscover.randomIndex) {
+      randomIndex = Math.floor(Math.random() * thisDiscover.songsLength);
+    }
     
-    return thisDiscover.songs[randomIndex];
+    thisDiscover.randomIndex = randomIndex;
+    
+    return thisDiscover.songs[thisDiscover.randomIndex];
   }
 }
 

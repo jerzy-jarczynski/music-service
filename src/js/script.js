@@ -4,6 +4,16 @@ import Search from './components/Search.js';
 import Discover from './components/Discover.js';
 
 const app = {
+  initHero: function() {
+    const thisApp = this;
+    
+    thisApp.hero = document.querySelector(select.hero);
+
+    window.addEventListener('scroll', () => {
+      thisApp.hero.style.opacity = 1 - +window.pageYOffset/700;
+    });
+  },
+  
   initPages: function() {
     const thisApp = this;
     
@@ -88,6 +98,14 @@ const app = {
         thisApp.initContent();
       });
   },
+
+  customizeSongSource: function() {
+    const thisApp = this;
+
+    for (const song of thisApp.data.songs) {
+      song.src = `./songs/${song.filename}`;
+    }
+  },
   
   initHome: function() {
     const thisApp = this;
@@ -113,6 +131,7 @@ const app = {
   initContent: function() {
     const thisApp = this;
     
+    thisApp.customizeSongSource();
     thisApp.initHome();
     thisApp.initSearch();
     thisApp.initDiscover();
@@ -121,21 +140,10 @@ const app = {
   init: function() {
     const thisApp = this;
     
+    thisApp.initHero();
     thisApp.initPages();
     thisApp.initData();
   },
 };
 
 app.init();
-
-const resizeSplashBg = () => {
-  const bg1 = document.querySelector(select.hero);
-  
-  window.addEventListener('scroll', () => {
-    // bg.style.backgroundSize = 160 - +window.pageYOffset/12 + '%';
-    bg1.style.opacity = 1 - +window.pageYOffset/700;
-  });
-};
-
-resizeSplashBg();
-

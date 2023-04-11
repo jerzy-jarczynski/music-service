@@ -77,8 +77,8 @@ export const templates = {
 
 export const settings = {
   db: {
-    // url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
-    url: 'https://music-service-api-2.jerzy-jarczynski.repl.co',
+    url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
+    // url: 'https://music-service-api-2.jerzy-jarczynski.repl.co',
     database: 'database',
   },
 };

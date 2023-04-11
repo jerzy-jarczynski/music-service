@@ -23,6 +23,17 @@ body {
   max-width: 61rem;
   padding: 0 1.5rem;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.display {
+  &--block {
+    display: block;
+  }
+
+  &--none {
+    display: none;
+  }
 }
 
 .flex {
@@ -44,6 +55,36 @@ body {
   &--space-between {
     justify-content: space-between;
   }
+
+  &--space-around {
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-md {
+    &--row {
+      flex-direction: row;
+    }
+  }
+
+  .display-md {
+    &--inline {
+      display: inline;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .flex-xl {
+    &--row {
+      flex-direction: row;
+    }
+
+    &--space-between {
+      justify-content: space-between;
+    }
+  }
 }
 
 .parallax {
@@ -54,5 +95,5 @@ body {
 
 .background-full {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }

@@ -58,7 +58,8 @@
         SUBSCRIBE
         <span class="banner__title--bold">NOW</span>
       </h2>
-      <div class="banner__row flex flex--column flex--center">
+
+      <div class="banner__row flex flex--column flex--space-around flex-xl--row flex-xl--space-between">
         <div class="banner__col banner__col--button">
           <button class="button banner__button">
             JOIN NOW
@@ -105,18 +106,18 @@
 
     <div class="song flex flex--column">
       <h3 class="song__title">
-        <a href="#" data-author="{{ author.id }}" class="song__title--author">
+        <a href="#" data-author="{{ author.id }}" class="song__title--author display--block display-md--inline">
           {{ author.name }}
         </a>
-        &nbsp;-&nbsp;
-        <a href="#" data-title="{{ title }}" class="song__title--title">{{ title }}</a>
+        <span class="display--none display-md--inline">&nbsp;-&nbsp;</span>
+        <a href="#" data-title="{{ title }}" class="song__title--title display--block display-md--inline">{{ title }}</a>
       </h3>
       <div class="song__audio-player">
         <audio>
           <source src="{{ src }}" type="audio/mp3"></source>
         </audio>
       </div>
-      <div class="song__additionals flex flex--space-between">
+      <div class="song__additionals flex flex--space-between flex--column flex-md--row">
         <div class="song__additionals--categories">
           Categories:
           {{#each categories}}
@@ -134,7 +135,7 @@
   <!-- SEARCHBAR -->
   <script id="template-searchbar-widget" type="text/x-handlebars-template">
       <form class="searchbar">
-        <div class="flex flex--center">
+        <div class="searchbar__wrapper flex flex--center flex--column flex-md--row">
           <label for="song" class="searchbar__title">
             Name
           </label>

@@ -37,6 +37,7 @@ class Home {
     const thisHome = this;
     
     for (let song of thisHome.data.songs) {
+      console.log(song);
       new AudioPlayer(song, thisHome.data.authors, thisHome.dom.songsList);
     }
     
